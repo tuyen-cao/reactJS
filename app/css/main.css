@@ -1,0 +1,31 @@
+body {
+	background: #c1c1c1;
+	font-family: sans-serif;
+	font-size: 1rem;
+}
+.container {
+	width: 60%;
+	margin: 0 auto;
+}
+h1 {
+	font-size: 1.5em;
+	text-align: center;
+}
+.addNewBar,
+.controlBlock {
+	text-align: center;
+}
+input, button {
+	font-size: 1rem;
+	padding: 5px 10px;
+	margin: 5px;
+}
+input {
+	width: 50%;
+}
+.controlBlock a {
+	margin: 0 20px;
+}
+.completed {
+	text-decoration: line-through;
+}
