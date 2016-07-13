@@ -2,6 +2,7 @@ import constants from '../constants';
 
 const nextTodoId = 0;
 
+
 const todoActionCreator = {
   addNewTodo(title) {
     return {
@@ -9,8 +10,11 @@ const todoActionCreator = {
       title: title
     };
   },
-  filterTodo(target) {
-  	return todos
+  filterTodo(target, todos) {
+  	return {
+      type: constants.SET_VISIBILITY_FILTER,
+      target: target
+    };
   }
 };
 

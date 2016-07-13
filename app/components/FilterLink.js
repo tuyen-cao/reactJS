@@ -7,7 +7,7 @@ class FilterLink extends Component {
 	}
 	render() {
 	    return (
-			<a href="#" title={this.props.name} target={constants.GET_ALL} 
+			<a href="#" title={this.props.name}
 				onClick={e => {
 					e.preventDefault()
 					this.handleFilter()

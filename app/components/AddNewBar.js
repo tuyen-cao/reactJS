@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import todoStore from '../store/todoStore'
 
 class AddNewBar extends Component { 
 	handleCreate() {
