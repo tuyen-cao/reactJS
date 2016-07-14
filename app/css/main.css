@@ -25,7 +25,13 @@ input {
 }
 .controlBlock a, .controlBlock span  {
 	margin: 0 20px;
+	font-weight: bold;
+	color: blue;
 }
+.controlBlock a {
+	color: red;
+}
+
 .completed {
 	text-decoration: line-through;
 }
