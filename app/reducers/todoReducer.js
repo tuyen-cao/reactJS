@@ -25,6 +25,13 @@ const todo = (state = [] , action) => {
 				});
 				return state
 		    }
+		case constants.ADD_NEW:
+			console.log(action)
+			return {
+		        text: action.title,
+		        isCompleted: false
+			};
+			//return state
 		default:
 		  return state
 	}
@@ -46,6 +53,18 @@ const todosReducer = (state = initialState , action) => {
 		    return Object.assign(state, {
 				todos: state.todos
 			});
+		case constants.ADD_NEW:
+			var newItem = todo(state.todos.length + 1, action);
+			newItem = Object.assign(newItem, {
+				key : state.todos.length + 1
+			})
+			var temp = [
+		        ...state.todos,
+		        newItem
+		      ]
+			return Object.assign(state, {
+				todos: temp
+			})
 		default:
 		  return state
 	}

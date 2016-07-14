@@ -1,9 +1,14 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import todoActionCreator from '../actions/todoActionCreator';
 
 class AddNewBar extends Component { 
 	handleCreate() {
-		this.props.onCreate(this.refs.title.value);
-		this.refs.title.value = ''; 
+		if (!this.refs.title.value.trim()) {
+          return
+        }
+		this.props.dispatch(todoActionCreator.addNewTodo(this.refs.title.value));
+		this.refs.title.value = '';
 	}
 	render() {
 	    return (
@@ -18,4 +23,4 @@ AddNewBar.propTypes = {
 	onCreate: PropTypes.func
 };
 
-export default AddNewBar;
+export default connect()(AddNewBar);
