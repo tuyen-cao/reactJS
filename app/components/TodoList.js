@@ -5,11 +5,14 @@ import TodoItem from './TodoItem';
 
 class TodoList extends Component {
 	render() {
-		const {todos} = this.props;
+		const {todos} = this.props.todos;
 	    return (
 	    	<ul>
 				{this.props.todos.map(todo =>
-					<TodoItem {...todo} />
+					<TodoItem {...todo} 
+						onClick = {e => { 
+				         this.props.onTodoClick(todo.id)
+			       	}} />
 				)}
 			</ul>
 	);}
@@ -18,7 +21,8 @@ class TodoList extends Component {
 TodoList.propTypes = {
 	todos: PropTypes.arrayOf(PropTypes.shape({
 		isCompleted: PropTypes.bool,
-		text: PropTypes.string
+		text: PropTypes.string,
+		id: PropTypes.number
 	})),
 	onTodoClick: PropTypes.func
 }

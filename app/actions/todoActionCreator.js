@@ -15,6 +15,12 @@ const todoActionCreator = {
       type: constants.SET_VISIBILITY_FILTER,
       target: target
     };
+  },
+  toggleTodo(id){
+    return {
+      type: constants.TOGGLE_TODO,
+      id: id
+    }
   }
 };
 

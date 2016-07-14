@@ -5,14 +5,21 @@ class TodoItem extends Component {
 		var cssClass = this.props.isCompleted ? "completed": ""; 
 		
 	    return (
-			<li className= {cssClass}>{this.props.text}</li>
+			<li className= {cssClass} 
+				onClick = {e => { 
+			        this.props.onClick()
+		       	}}
+			>{this.props.text}</li>
 	); }
 }
 TodoItem.propTypes = {
 	isActive: PropTypes.bool,
 	isCompleted: PropTypes.bool,
 	text: PropTypes.string,
-	onChange: PropTypes.func
+	onClick: PropTypes.func,
+	id: PropTypes.number
 };
+
+
 
 export default TodoItem;

@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import TodoList from './TodoList';
 import constants  from '../constants';
 import todoStore from '../store/todoStore';
+import todoActionCreator from '../actions/todoActionCreator';
 
 
 const getVisibleTodos = (todos, filter) => {
-  console.log(todos);
   switch (filter) {
     case constants.GET_ALL:
         return todos
@@ -24,9 +24,15 @@ const mapStateToProps = (state) => {
   }
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (id) => dispatch(todoActionCreator.toggleTodo(id))
+  }
+};
 
 const VisibleTodoList = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(TodoList)
 
 export default VisibleTodoList

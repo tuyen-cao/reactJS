@@ -1,6 +1,6 @@
 export default {
   ADD_NEW: "add todo",
-  FILTER_TODO: "filter todo",
+  TOGGLE_TODO: "toggle todo",
   GET_ALL: "get all",
   GET_COMPLETED: "get completed",
   GET_ACTIVE: "get active",

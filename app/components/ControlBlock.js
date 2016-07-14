@@ -7,9 +7,9 @@ class ControlBlock extends Component {
 	render() {
 	    return (
 			<div className="controlBlock">
-				<FilterLink {...this.props} target={constants.GET_ALL}>All</FilterLink>
-				<FilterLink {...this.props} target={constants.GET_ACTIVE}>Active</FilterLink>
-				<FilterLink {...this.props} target={constants.GET_COMPLETED}>Completed</FilterLink>
+				<FilterLink target={constants.GET_ALL}>All</FilterLink>
+				<FilterLink target={constants.GET_ACTIVE}>Active</FilterLink>
+				<FilterLink target={constants.GET_COMPLETED}>Completed</FilterLink>
 			</div>
 	);
 	}

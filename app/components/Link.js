@@ -37,8 +37,7 @@ Link.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		active: ownProps.target === state.todoReducer.target,
-		todos: state.todoReducer.todos
+		active: ownProps.target === state.todoReducer.target
 	}
 }
 
