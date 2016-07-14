@@ -26,7 +26,6 @@ const todo = (state = [] , action) => {
 				return state
 		    }
 		case constants.ADD_NEW:
-			console.log(action)
 			return {
 		        text: action.title,
 		        isCompleted: false
@@ -38,7 +37,6 @@ const todo = (state = [] , action) => {
 
 
 const todosReducer = (state = initialState , action) => {
-	console.log(state, action);
 	switch (action.type) {
 		case constants.SET_VISIBILITY_FILTER:
 		  	return Object.assign(state, {
@@ -59,8 +57,6 @@ const todosReducer = (state = initialState , action) => {
 				id: id,
 				key : id
 			})
-			console.log("ID ------> " + newItem.id)
-			console.log("KEY ------> " + newItem.key)
 			var temp = [
 		        ...state.todos,
 		        newItem
