@@ -31,7 +31,6 @@ input {
 .controlBlock a {
 	color: red;
 }
-
 .completed {
 	text-decoration: line-through;
 }
