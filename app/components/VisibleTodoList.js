@@ -5,21 +5,21 @@ import todoStore from '../store/todoStore';
 
 
 const getVisibleTodos = (todos, filter) => {
+  console.log(todos);
   switch (filter) {
     case constants.GET_ALL:
         return todos
     case constants.GET_COMPLETED:
-      console.log(filter + "GET_COMPLETED");
+      //console.log(filter + "GET_COMPLETED");
         return todos.filter(t => t.isCompleted)
     case constants.GET_ACTIVE:
-      console.log(filter + "GET_ACTIVE");
+      //console.log(filter + "GET_ACTIVE");
       return todos.filter(t => !t.isCompleted)
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
-    return {
+  return {
     todos: getVisibleTodos(state.todoReducer.todos, state.todoReducer.target)
   }
 };

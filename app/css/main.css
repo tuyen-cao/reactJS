@@ -23,7 +23,7 @@ input, button {
 input {
 	width: 50%;
 }
-.controlBlock a {
+.controlBlock a, .controlBlock span  {
 	margin: 0 20px;
 }
 .completed {

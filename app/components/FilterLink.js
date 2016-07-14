@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import constants  from '../constants';
+import todoActionCreator from '../actions/todoActionCreator';
 
-class FilterLink extends Component { 
+class FilterLinkInner extends Component { 
 	handleFilter() {
 		this.props.onFilter(this.props.target);
 	}
@@ -15,8 +17,18 @@ class FilterLink extends Component {
 	); }
 }
 
-FilterLink.propTypes = {
+FilterLinkInner.propTypes = {
 	onFilter: PropTypes.func
 };
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onFilter: (target) => dispatch(todoActionCreator.filterTodo(target))
+	}
+};
+
+const FilterLink = connect(
+  mapDispatchToProps
+)(FilterLinkInner)
 
 export default FilterLink;

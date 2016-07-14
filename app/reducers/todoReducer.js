@@ -12,15 +12,13 @@ const initialState = {
 	todos:  dummyTodos
 }
 
-
-
 const todoReducer = (state = initialState , action) => {
 	console.log(state, action);
 	switch (action.type) {
 		case constants.SET_VISIBILITY_FILTER:
 		  return {
 		  	target: action.target,
-		  	todos
+		  	todos: state.todos
 		  };
 		default:
 		  return state

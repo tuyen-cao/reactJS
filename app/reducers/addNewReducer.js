@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const addNewReducer = (state = initialState , action) => {
-	console.log(state, action);
+	//console.log(state, action);
 	switch (action.type) {
 		case constants.ADD_NEW:
 			return {
