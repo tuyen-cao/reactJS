@@ -26,7 +26,7 @@ input {
 .controlBlock a, .controlBlock span  {
 	margin: 0 20px;
 	font-weight: bold;
-	color: blue;
+	color: green;
 }
 .controlBlock a {
 	color: red;
