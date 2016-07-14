@@ -31,7 +31,6 @@ const todo = (state = [] , action) => {
 		        text: action.title,
 		        isCompleted: false
 			};
-			//return state
 		default:
 		  return state
 	}
@@ -54,10 +53,14 @@ const todosReducer = (state = initialState , action) => {
 				todos: state.todos
 			});
 		case constants.ADD_NEW:
-			var newItem = todo(state.todos.length + 1, action);
+			var id = Math.floor(Math.random() * 10) + 1; 
+			var newItem = todo(id, action);
 			newItem = Object.assign(newItem, {
-				key : state.todos.length + 1
+				id: id,
+				key : id
 			})
+			console.log("ID ------> " + newItem.id)
+			console.log("KEY ------> " + newItem.key)
 			var temp = [
 		        ...state.todos,
 		        newItem
