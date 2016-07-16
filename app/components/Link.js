@@ -4,9 +4,6 @@ import todoActionCreator from '../actions/todoActionCreator';
 import todoStore from '../store/todoStore';
 
 class Link extends Component {
-	handleFilter() {
-		this.props.onFilter(this.props.target);
-	}
 	render() {
 		if(this.props.active) {
 			return (
@@ -16,10 +13,10 @@ class Link extends Component {
 		else{
 			return (
 			    <a href="#"
-			       onClick={e => {
-			         e.preventDefault()
-			         this.props.onFilter()
-			       }}
+					onClick={e => {
+						e.preventDefault()
+						this.props.onFilter()
+					}}
 			    >
 			      {this.props.children}
 			    </a>

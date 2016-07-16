@@ -33,7 +33,7 @@ module.exports = {
     })
   ],
   devServer: {
-    port: 2000,
+    port: 3000,
     contentBase: "./public",
     colors: true,
     historyApiFallback: true,

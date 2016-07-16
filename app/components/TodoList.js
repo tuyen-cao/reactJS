@@ -5,10 +5,10 @@ import TodoItem from './TodoItem';
 
 class TodoList extends Component {
 	render() {
-		const {todos} = this.props.todos;
+		var todos = this.props.todos;
 	    return (
-	    	<ul>
-				{this.props.todos.map(todo =>
+	    	<ul >
+				{todos.map(todo =>
 					<TodoItem {...todo} 
 						onClick = {e => { 
 				         this.props.onTodoClick(todo.id)

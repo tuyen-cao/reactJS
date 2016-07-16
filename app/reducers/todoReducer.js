@@ -20,7 +20,7 @@ const todo = (state = [] , action) => {
 		        return state
 		    }
 		    else {
-		    	state = Object.assign(state, {
+		    	state = Object.assign({}, state, {
 					isCompleted: !state.isCompleted
 				});
 				return state
@@ -39,15 +39,16 @@ const todo = (state = [] , action) => {
 const todosReducer = (state = initialState , action) => {
 	switch (action.type) {
 		case constants.SET_VISIBILITY_FILTER:
-		  	return Object.assign(state, {
-				target: action.target
+			state = Object.assign({}, state, {
+				target: action.target,
+				todos: state.todos
 			});
+			return state;
 		case constants.TOGGLE_TODO:
 			state.todos = state.todos.map(t =>
 		        todo(t, action)
 		    );
-		    
-		    return Object.assign(state, {
+		    return Object.assign({},state, {
 				todos: state.todos
 			});
 		case constants.ADD_NEW:
@@ -56,12 +57,12 @@ const todosReducer = (state = initialState , action) => {
 			newItem = Object.assign(newItem, {
 				id: id,
 				key : id
-			})
+			});
 			var temp = [
 		        ...state.todos,
 		        newItem
-		      ]
-			return Object.assign(state, {
+		      ];
+			return Object.assign({}, state, {
 				todos: temp
 			})
 		default:

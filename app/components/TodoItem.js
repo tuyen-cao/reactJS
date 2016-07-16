@@ -5,7 +5,8 @@ class TodoItem extends Component {
 		var cssClass = this.props.isCompleted ? "completed": ""; 
 		
 	    return (
-			<li className= {cssClass} 
+			<li className = {cssClass} 
+				key = {this.props.id}
 				onClick = {e => { 
 			        this.props.onClick()
 		       	}}

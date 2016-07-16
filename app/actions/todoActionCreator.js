@@ -10,7 +10,7 @@ const todoActionCreator = {
       title: title
     };
   },
-  filterTodo(target, todos) {
+  filterTodo(target) {
   	return {
       type: constants.SET_VISIBILITY_FILTER,
       target: target

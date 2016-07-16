@@ -8,13 +8,11 @@ import todoActionCreator from '../actions/todoActionCreator';
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case constants.GET_ALL:
-        return todos
+      return todos;
     case constants.GET_COMPLETED:
-      //console.log(filter + "GET_COMPLETED");
-        return todos.filter(t => t.isCompleted)
+      return todos.filter(t => t.isCompleted);
     case constants.GET_ACTIVE:
-      //console.log(filter + "GET_ACTIVE");
-      return todos.filter(t => !t.isCompleted)
+      return todos.filter(t => !t.isCompleted);
   }
 }
 
