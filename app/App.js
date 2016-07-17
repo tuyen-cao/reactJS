@@ -9,18 +9,23 @@ import { Router, Route, browserHistory } from "react-router";
 import './css/main.css';
 
 
-class TodoApp extends Component {
+/*class TodoApp extends Component {
 	render() {
 		return(
-			<div className="container">
-				<h1>TODO APP</h1>
-				<AddNewBar />
-				<VisibleTodoList  />
-				<ControlBlock />
-			</div>
+			
 		); 
 	}
-}
+}*/
+const TodoApp = ({ params }) => (
+	<div className="container">
+		<h1>TODO APP</h1>
+		<AddNewBar />
+		<VisibleTodoList
+			filter = {params.filter || "all"}
+		/>
+		<ControlBlock />
+	</div>
+);
 TodoApp.propTypes = {	
 	todos: PropTypes.arrayOf(PropTypes.shape({
 		isCompleted: PropTypes.bool,
@@ -31,7 +36,7 @@ TodoApp.propTypes = {
 render(
 	<Provider store={todoStore}>
 		<Router history={browserHistory}>
-			<Route path="/" component={TodoApp}></Route>
+			<Route path="/(:filter)" component={TodoApp}></Route>
 		</Router>
   	</Provider>, document.querySelector('#root')
 );
