@@ -1,15 +1,13 @@
 import constants  from '../constants';
 
-const dummyTodos = [
-  { key:1, isCompleted: true,  text: 'make components', id: 1 },
-  { key:2, isCompleted: false, text: 'design actions', id: 2 },
-  { key:3, isCompleted: true, text: 'implement reducer', id: 3 },
-  { key:4, isCompleted: false, text: 'connect components', id: 4 }
-]
+/*
+localStorage["myToods"] = JSON.stringify(myToods);
 
+var todoStore = JSON.parse(localStorage["state"]);
+*/
 const initialState = {
 	target:constants.GET_ALL,
-	todos:  dummyTodos
+	todos:  []
 }
 
 
@@ -17,7 +15,7 @@ const todo = (state = [] , action) => {
 	switch (action.type) {
 		case constants.TOGGLE_TODO:
 			if (state.id !== action.id) {
-		        return state
+		        return state;
 		    }
 		    else {
 		    	state = Object.assign({}, state, {
@@ -52,7 +50,7 @@ const todosReducer = (state = initialState , action) => {
 				todos: state.todos
 			});
 		case constants.ADD_NEW:
-			var id = Math.floor(Math.random() * 10) + 1; 
+			var id = Math.floor(Math.random() * 1000) + 1; 
 			var newItem = todo(id, action);
 			newItem = Object.assign(newItem, {
 				id: id,

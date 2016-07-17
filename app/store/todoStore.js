@@ -1,12 +1,10 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
+import { loadState, saveState } from './localStorage';
+
 
 
 const logger = (store) => (dispatch) => (action) => {
-    /*console.log('dispatching:', action);
-    console.log('next state:', store.getState());
-  	return next(action);*/
-
 	console.log('Dispatching:', action.type)
 	console.log('Old state:', store.getState())
 	var result = dispatch(action)
@@ -14,9 +12,18 @@ const logger = (store) => (dispatch) => (action) => {
 	return result
 };
 
+const persistedState = loadState();
+
 const todoStore = createStore(
   reducers,
+  persistedState,
   applyMiddleware(logger)
 );
+
+todoStore.subscribe(() => {
+	saveState(todoStore.getState());
+})
+
+console.log(loadState())
 
 export default todoStore;

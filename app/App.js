@@ -5,8 +5,8 @@ import VisibleTodoList from './components/VisibleTodoList';
 import ControlBlock from './components/ControlBlock';
 import todoStore from './store/todoStore';
 import { connect, Provider } from 'react-redux';
-
 import './css/main.css';
+
 
 class TodoApp extends Component {
 	render() {
