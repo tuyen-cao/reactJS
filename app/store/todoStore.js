@@ -2,8 +2,6 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
 import { loadState, saveState } from './localStorage';
 
-
-
 const logger = (store) => (dispatch) => (action) => {
 	console.log('Dispatching:', action.type)
 	console.log('Old state:', store.getState())
@@ -22,8 +20,6 @@ const todoStore = createStore(
 
 todoStore.subscribe(() => {
 	saveState(todoStore.getState());
-})
-
-console.log(loadState())
+});
 
 export default todoStore;

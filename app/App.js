@@ -5,6 +5,7 @@ import VisibleTodoList from './components/VisibleTodoList';
 import ControlBlock from './components/ControlBlock';
 import todoStore from './store/todoStore';
 import { connect, Provider } from 'react-redux';
+import { Router, Route, browserHistory } from "react-router";
 import './css/main.css';
 
 
@@ -29,6 +30,8 @@ TodoApp.propTypes = {
 
 render(
 	<Provider store={todoStore}>
-    	<TodoApp />
+		<Router history={browserHistory}>
+			<Route path="/" component={TodoApp}></Route>
+		</Router>
   	</Provider>, document.querySelector('#root')
 );
